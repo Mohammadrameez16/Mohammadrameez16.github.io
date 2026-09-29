@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_63cf951afbf0846c2c63ef46c81cb37f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_63cf951afbf0846c2c63ef46c81cb37f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_63cf951afbf0846c2c63ef46c81cb37f = L.map(
+                "map_63cf951afbf0846c2c63ef46c81cb37f",
+                {
+                    center: [13.713133037303797, 79.59068141499998],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 16,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_63cf951afbf0846c2c63ef46c81cb37f);
+
+            
+
+        
+    
+            var tile_layer_c4fa8f8181c4e603c2d09d883acb6c76 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_c4fa8f8181c4e603c2d09d883acb6c76.addTo(map_63cf951afbf0846c2c63ef46c81cb37f);
+        
+    
+        function geo_json_14517cff9fcb2aed39da970c04acf9ba_pointToLayer(feature, latlng) {
+            var opts = {
+  "stroke": true,
+  "color": "#17324d",
+  "weight": 1.5,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#f08a24",
+  "fillOpacity": 0.85,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 6,
+};
+            
+            return new L.CircleMarker(latlng, opts)
+        }
+
+        function geo_json_14517cff9fcb2aed39da970c04acf9ba_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_14517cff9fcb2aed39da970c04acf9ba = L.geoJson(null, {
+                onEachFeature: geo_json_14517cff9fcb2aed39da970c04acf9ba_onEachFeature,
+            
+                pointToLayer: geo_json_14517cff9fcb2aed39da970c04acf9ba_pointToLayer,
+            ...{
+}
+        });
+
+        function geo_json_14517cff9fcb2aed39da970c04acf9ba_add (data) {
+            geo_json_14517cff9fcb2aed39da970c04acf9ba
+                .addData(data);
+        }
+            geo_json_14517cff9fcb2aed39da970c04acf9ba_add({"bbox": [79.58607972999997, 13.706029010000002, 79.59528309999999, 13.720237064607591], "features": [{"bbox": [79.59122179999999, 13.715141100000002, 79.59122179999999, 13.715141100000002], "geometry": {"coordinates": [79.59122179999999, 13.715141100000002, 29.900001525878906], "type": "Point"}, "id": "0", "properties": {"color": "#377eb8", "note": "\n", "timestamp": "2026-08-25 05:46:54.230000+00:00", "title": "Not recorded"}, "type": "Feature"}, {"bbox": [79.58706283, 13.717028279999997, 79.58706283, 13.717028279999997], "geometry": {"coordinates": [79.58706283, 13.717028279999997, 34.67669677734375], "type": "Point"}, "id": "1", "properties": {"color": "#377eb8", "note": "\n\n\n", "timestamp": "2026-08-30 12:24:20.746000+00:00", "title": "Outside North Mess"}, "type": "Feature"}, {"bbox": [79.58718751, 13.71717337, 79.58718751, 13.71717337], "geometry": {"coordinates": [79.58718751, 13.71717337, 35.17138671875], "type": "Point"}, "id": "2", "properties": {"color": "#377eb8", "note": "Not recorded", "timestamp": "2026-08-30 12:25:33.932000+00:00", "title": "Near North OAT"}, "type": "Feature"}, {"bbox": [79.58696511999999, 13.71757086, 79.58696511999999, 13.71757086], "geometry": {"coordinates": [79.58696511999999, 13.71757086, 30.56976318359375], "type": "Point"}, "id": "3", "properties": {"color": "#377eb8", "note": "Not recorded", "timestamp": "2026-08-30 12:26:40.797000+00:00", "title": "Infront of Hostel DES"}, "type": "Feature"}, {"bbox": [79.58656563, 13.7173385, 79.58656563, 13.7173385], "geometry": {"coordinates": [79.58656563, 13.7173385, 36.5936279296875], "type": "Point"}, "id": "4", "properties": {"color": "#377eb8", "note": "Not recorded", "timestamp": "2026-08-30 12:28:59.286000+00:00", "title": "Backside North Mess"}, "type": "Feature"}, {"bbox": [79.58613829999997, 13.716532709999997, 79.58613829999997, 13.716532709999997], "geometry": {"coordinates": [79.58613829999997, 13.716532709999997, 32.18572998046875], "type": "Point"}, "id": "5", "properties": {"color": "#377eb8", "note": "Not recorded", "timestamp": "2026-08-30 12:32:15.673000+00:00", "title": "Backside North Mess Road"}, "type": "Feature"}, {"bbox": [79.58624798999998, 13.71481513, 79.58624798999998, 13.71481513], "geometry": {"coordinates": [79.58624798999998, 13.71481513, 39.41961669921875], "type": "Point"}, "id": "6", "properties": {"color": "#377eb8", "note": "Not recorded", "timestamp": "2026-08-30 12:37:35.603000+00:00", "title": "Sports Utility building "}, "type": "Feature"}, {"bbox": [79.58651909, 13.71463113, 79.58651909, 13.71463113], "geometry": {"coordinates": [79.58651909, 13.71463113, 41.22418212890625], "type": "Point"}, "id": "7", "properties": {"color": "#377eb8", "note": "Empty", "timestamp": "2026-08-30 12:39:58.036000+00:00", "title": "Infront of new tennis court"}, "type": "Feature"}, {"bbox": [79.58612355, 13.71458508, 79.58612355, 13.71458508], "geometry": {"coordinates": [79.58612355, 13.71458508, 46.1875], "type": "Point"}, "id": "8", "properties": {"color": "#377eb8", "note": "Half filled", "timestamp": "2026-08-30 12:42:18.685000+00:00", "title": "Near Tennis Court 1"}, "type": "Feature"}, {"bbox": [79.58607972999997, 13.714396470000002, 79.58607972999997, 13.714396470000002], "geometry": {"coordinates": [79.58607972999997, 13.714396470000002, 46.82025146484375], "type": "Point"}, "id": "9", "properties": {"color": "#377eb8", "note": "Lightly filled", "timestamp": "2026-08-30 12:44:00.910000+00:00", "title": "Backside Tennis Court"}, "type": "Feature"}, {"bbox": [79.58610302999998, 13.714156250000002, 79.58610302999998, 13.714156250000002], "geometry": {"coordinates": [79.58610302999998, 13.714156250000002, 50.0572509765625], "type": "Point"}, "id": "10", "properties": {"color": "#377eb8", "note": "Lightly filled ", "timestamp": "2026-08-30 12:45:13.367000+00:00", "title": "Near Tennis court 2"}, "type": "Feature"}, {"bbox": [79.58616589999997, 13.71401944, 79.58616589999997, 13.71401944], "geometry": {"coordinates": [79.58616589999997, 13.71401944, 49.10333251953125], "type": "Point"}, "id": "11", "properties": {"color": "#377eb8", "note": "Lightly filled ", "timestamp": "2026-08-30 12:46:03.453000+00:00", "title": "Near Tennis court 2"}, "type": "Feature"}, {"bbox": [79.58685102, 13.71398705, 79.58685102, 13.71398705], "geometry": {"coordinates": [79.58685102, 13.71398705, 40.81903076171875], "type": "Point"}, "id": "12", "properties": {"color": "#377eb8", "note": "Lightly filled ", "timestamp": "2026-08-30 12:50:09.045000+00:00", "title": "Infront of Tennis Court Road"}, "type": "Feature"}, {"bbox": [79.58814933999999, 13.712757459999999, 79.58814933999999, 13.712757459999999], "geometry": {"coordinates": [79.58814933999999, 13.712757459999999, 35.731689453125], "type": "Point"}, "id": "13", "properties": {"color": "#377eb8", "note": "Empty", "timestamp": "2026-08-30 12:54:40.313000+00:00", "title": "Infront of guest house road"}, "type": "Feature"}, {"bbox": [79.58803789999997, 13.7120899, 79.58803789999997, 13.7120899], "geometry": {"coordinates": [79.58803789999997, 13.7120899, 50.5], "type": "Point"}, "id": "14", "properties": {"color": "#377eb8", "note": "Half filled ", "timestamp": "2026-08-30 12:59:22.430000+00:00", "title": "Near Guest house "}, "type": "Feature"}, {"bbox": [79.59161239999997, 13.71196388, 79.59161239999997, 13.71196388], "geometry": {"coordinates": [79.59161239999997, 13.71196388, 18.58203125], "type": "Point"}, "id": "15", "properties": {"color": "#377eb8", "note": "Lightly filled ", "timestamp": "2026-08-30 13:11:21.252000+00:00", "title": "Near rotary "}, "type": "Feature"}, {"bbox": [79.59174758, 13.712795209999998, 79.59174758, 13.712795209999998], "geometry": {"coordinates": [79.59174758, 13.712795209999998, 16.64117431640625], "type": "Point"}, "id": "16", "properties": {"color": "#377eb8", "note": "Lightly filled ", "timestamp": "2026-08-30 13:13:32.475000+00:00", "title": "Bus Route Rotary to Malhar "}, "type": "Feature"}, {"bbox": [79.59012323999998, 13.71426695, 79.59012323999998, 13.71426695], "geometry": {"coordinates": [79.59012323999998, 13.71426695, 4.8682861328125], "type": "Point"}, "id": "17", "properties": {"color": "#377eb8", "note": "Empty ", "timestamp": "2026-08-30 13:18:11.083000+00:00", "title": "LHC entry road "}, "type": "Feature"}, {"bbox": [79.58960167999999, 13.714530899999998, 79.58960167999999, 13.714530899999998], "geometry": {"coordinates": [79.58960167999999, 13.714530899999998, 19.111083984375], "type": "Point"}, "id": "18", "properties": {"color": "#377eb8", "note": "Lightly filled ", "timestamp": "2026-08-30 13:20:31.583000+00:00", "title": "On Main Road(Rotary to Malhar)"}, "type": "Feature"}, {"bbox": [79.58928940999999, 13.71499276, 79.58928940999999, 13.71499276], "geometry": {"coordinates": [79.58928940999999, 13.71499276, 18.279052734375], "type": "Point"}, "id": "19", "properties": {"color": "#377eb8", "note": "Lightly filled ", "timestamp": "2026-08-30 13:22:33.287000+00:00", "title": "On Main Road (Rotary to Malhar)"}, "type": "Feature"}, {"bbox": [79.58859121999998, 13.715537849999995, 79.58859121999998, 13.715537849999995], "geometry": {"coordinates": [79.58859121999998, 13.715537849999995, 24.5008544921875], "type": "Point"}, "id": "20", "properties": {"color": "#377eb8", "note": "Not recorded", "timestamp": "2026-08-30 13:24:54.080000+00:00", "title": "On Main road (Rotary to Malhar)"}, "type": "Feature"}, {"bbox": [79.5885378, 13.71649609, 79.5885378, 13.71649609], "geometry": {"coordinates": [79.5885378, 13.71649609, 24.50628662109375], "type": "Point"}, "id": "21", "properties": {"color": "#377eb8", "note": "Lightly filled ", "timestamp": "2026-08-30 13:27:27.408000+00:00", "title": "Infront of Mess entry road "}, "type": "Feature"}, {"bbox": [79.59233599, 13.711075719999998, 79.59233599, 13.711075719999998], "geometry": {"coordinates": [79.59233599, 13.711075719999998, 19.82666015625], "type": "Point"}, "id": "22", "properties": {"color": "#377eb8", "note": "Lightly filled ", "timestamp": "2026-08-30 15:10:38.841000+00:00", "title": "Main road (Rotary to Girls hostel)"}, "type": "Feature"}, {"bbox": [79.59234875, 13.70984226, 79.59234875, 13.70984226], "geometry": {"coordinates": [79.59234875, 13.70984226, 31.093017578125], "type": "Point"}, "id": "23", "properties": {"color": "#377eb8", "note": "Half filled ", "timestamp": "2026-08-30 15:14:56.569000+00:00", "title": "Behind sports complex"}, "type": "Feature"}, {"bbox": [79.59323516, 13.710045559999996, 79.59323516, 13.710045559999996], "geometry": {"coordinates": [79.59323516, 13.710045559999996, 22.60467529296875], "type": "Point"}, "id": "24", "properties": {"color": "#377eb8", "note": "Empty", "timestamp": "2026-08-30 15:17:19.145000+00:00", "title": "Infront of sports complex "}, "type": "Feature"}, {"bbox": [79.59328999999998, 13.709447339999995, 79.59328999999998, 13.709447339999995], "geometry": {"coordinates": [79.59328999999998, 13.709447339999995, 23.69384765625], "type": "Point"}, "id": "25", "properties": {"color": "#377eb8", "note": "Dry waste and wet waste ", "timestamp": "2026-08-30 15:19:43.298000+00:00", "title": "Beside cricket ground "}, "type": "Feature"}, {"bbox": [79.59165085137049, 13.720237064607591, 79.59165085137049, 13.720237064607591], "geometry": {"coordinates": [79.59165085137049, 13.720237064607591, 0.0], "type": "Point"}, "id": "26", "properties": {"color": "#377eb8", "note": "Empty", "timestamp": "2026-08-31 13:58:18.847000+00:00", "title": "Infront of LHC "}, "type": "Feature"}, {"bbox": [79.59180411999998, 13.715798039999997, 79.59180411999998, 13.715798039999997], "geometry": {"coordinates": [79.59180411999998, 13.715798039999997, 32.646728515625], "type": "Point"}, "id": "27", "properties": {"color": "#377eb8", "note": "Half filled ", "timestamp": "2026-08-31 14:01:43.455000+00:00", "title": "Infront of Library "}, "type": "Feature"}, {"bbox": [79.59432132999997, 13.714598459999996, 79.59432132999997, 13.714598459999996], "geometry": {"coordinates": [79.59432132999997, 13.714598459999996, 12.37298583984375], "type": "Point"}, "id": "28", "properties": {"color": "#377eb8", "note": "Lightly filled ", "timestamp": "2026-08-31 14:08:45.316000+00:00", "title": "Infront of National flag"}, "type": "Feature"}, {"bbox": [79.59528309999999, 13.708749899999999, 79.59528309999999, 13.708749899999999], "geometry": {"coordinates": [79.59528309999999, 13.708749899999999, 0.0], "type": "Point"}, "id": "29", "properties": {"color": "#377eb8", "note": "Half filled ", "timestamp": "2026-08-31 14:12:37.948000+00:00", "title": "Near main gate "}, "type": "Feature"}, {"bbox": [79.59176565, 13.716962489999998, 79.59176565, 13.716962489999998], "geometry": {"coordinates": [79.59176565, 13.716962489999998, 12.38006591796875], "type": "Point"}, "id": "30", "properties": {"color": "#377eb8", "note": "Empty", "timestamp": "2026-08-31 14:44:31.267000+00:00", "title": "Infront of TIH"}, "type": "Feature"}, {"bbox": [79.59445224, 13.706628880000002, 79.59445224, 13.706628880000002], "geometry": {"coordinates": [79.59445224, 13.706628880000002, 23.3336181640625], "type": "Point"}, "id": "31", "properties": {"color": "#377eb8", "note": "Half filled", "timestamp": "2026-09-04 09:04:13.009000+00:00", "title": "Infront of TC1"}, "type": "Feature"}, {"bbox": [79.59446962, 13.706029010000002, 79.59446962, 13.706029010000002], "geometry": {"coordinates": [79.59446962, 13.706029010000002, 19.24932861328125], "type": "Point"}, "id": "32", "properties": {"color": "#377eb8", "note": "Empty", "timestamp": "2026-09-04 09:06:51.512000+00:00", "title": "Near south gate"}, "type": "Feature"}, {"bbox": [79.59518140999998, 13.70730281, 79.59518140999998, 13.70730281], "geometry": {"coordinates": [79.59518140999998, 13.70730281, 12.50445556640625], "type": "Point"}, "id": "33", "properties": {"color": "#377eb8", "note": "Full", "timestamp": "2026-09-04 09:12:35.369000+00:00", "title": "Backside south mess"}, "type": "Feature"}, {"bbox": [79.59485297, 13.70821068, 79.59485297, 13.70821068], "geometry": {"coordinates": [79.59485297, 13.70821068, 14.5723876953125], "type": "Point"}, "id": "34", "properties": {"color": "#377eb8", "note": "Half fill", "timestamp": "2026-09-04 09:15:23.942000+00:00", "title": "Infront of south canteen "}, "type": "Feature"}, {"bbox": [79.59392058999997, 13.708854989999999, 79.59392058999997, 13.708854989999999], "geometry": {"coordinates": [79.59392058999997, 13.708854989999999, 18.60223388671875], "type": "Point"}, "id": "35", "properties": {"color": "#377eb8", "note": "Half filled ", "timestamp": "2026-09-04 09:18:25.506000+00:00", "title": "Way to south hostel "}, "type": "Feature"}], "type": "FeatureCollection"});
+        geo_json_14517cff9fcb2aed39da970c04acf9ba.setStyle(function(feature) {return feature.properties.style;});
+
+        
+    
+    geo_json_14517cff9fcb2aed39da970c04acf9ba.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["title", "note", "timestamp", "color"];
+    let aliases = ["Observation:", "Note:", "Recorded:", "Marker color:"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
+            
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  "sticky": false,
+  "className": "foliumtooltip",
+});
+                     
+    
+            geo_json_14517cff9fcb2aed39da970c04acf9ba.addTo(map_63cf951afbf0846c2c63ef46c81cb37f);
+        
+    
+            var layer_control_6dc7c0f19eaf6acd14e2cad0731a8040_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_c4fa8f8181c4e603c2d09d883acb6c76,
+                },
+                overlays :  {
+                    "Waste-bin observations" : geo_json_14517cff9fcb2aed39da970c04acf9ba,
+                },
+            };
+            let layer_control_6dc7c0f19eaf6acd14e2cad0731a8040 = L.control.layers(
+                layer_control_6dc7c0f19eaf6acd14e2cad0731a8040_layers.base_layers,
+                layer_control_6dc7c0f19eaf6acd14e2cad0731a8040_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_63cf951afbf0846c2c63ef46c81cb37f);
+
+        
+    
+            map_63cf951afbf0846c2c63ef46c81cb37f.fitBounds(
+                [[13.706029010000002, 79.58607972999997], [13.720237064607591, 79.59528309999999]],
+                {"padding": [20, 20]}
+            );
+        
+</script>
+</html>
