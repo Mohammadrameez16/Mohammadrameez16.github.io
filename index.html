@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1117">
+  <title>Hyderabad Aerosol Index · Urban Analysis</title>
+  <style>
+    :root { color-scheme:dark; --ink:#f2f5f7; --muted:#a5b2bf; --paper:#0b1117; --card:#121c27; --line:#273747; --teal:#5dd9c1; --amber:#f4a261; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; } body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.6 system-ui,Segoe UI,Arial,sans-serif; }
+    main { max-width:1120px; margin:0 auto; padding:25px 20px 60px; }
+    header, section { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:25px; margin:0 0 18px; }
+    header { background:linear-gradient(135deg,#172432,#111b25 62%,#18332f); }
+    h1,h2 { line-height:1.2; } h1 { margin:12px 0; font-size:clamp(2rem,5vw,3.4rem); letter-spacing:-.035em; }
+    h2 { margin:0 0 14px; } h3 { margin-bottom:7px; } .meta,.note { color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; }
+    .stat { background:#172432; border:1px solid var(--line); border-radius:12px; padding:15px; }
+    .stat strong { display:block; color:var(--teal); font-size:1.5rem; } .stat span { color:var(--muted); font-size:.92rem; }
+    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:16px; } .card { background:#0e1720; border:1px solid var(--line); border-radius:12px; padding:15px; }
+    figure { margin:0; } figure img { display:block; width:100%; height:auto; border-radius:8px; background:#172432; }
+    figcaption { color:var(--muted); padding:8px 2px 0; }
+    .legend { margin:12px 0 0; } .ramp { height:13px; border-radius:8px; background:linear-gradient(90deg,#253494,#2c7fb8,#41b6c4,#a1dab4,#ffffcc,#fdae61,#d7191c); }
+    .ramp-pop { height:13px; border-radius:8px; background:linear-gradient(90deg,#fff1e6,#ffc2a1,#ff8f70,#e5484d,#b4235a,#64113f); } .ramp-anom { height:13px; border-radius:8px; background:linear-gradient(90deg,#3155a6,#77b7d5,#edf3f4,#f4a261,#c8374a); }
+    .ticks { display:flex; justify-content:space-between; color:var(--muted); font-size:.82rem; gap:12px; }
+    a { color:var(--teal); } a:hover { color:#b5ffed; } .pill { display:inline-block; padding:5px 10px; border-radius:999px; background:#15312f; color:#a4f1e1; font-weight:700; }
+    .mapframe { width:100%; height:720px; border:1px solid var(--line); border-radius:12px; background:#101923; } .chart { background:#0e1720; border:1px solid var(--line); border-radius:12px; padding:12px; } .chart svg { width:100%; height:auto; } .chart text { fill:#a5b2bf; font-family:inherit; }
+    .textpanel { background:#0e1720; border:1px solid var(--line); border-radius:12px; padding:16px 18px; } nav { border-bottom:1px solid var(--line); margin-bottom:20px; padding:6px 2px 13px; display:flex; gap:18px; flex-wrap:wrap; }
+    table { width:100%; border-collapse:collapse; } th,td { text-align:right; padding:7px; border-bottom:1px solid var(--line); } th:first-child,td:first-child { text-align:left; }
+    footer { color:var(--muted); font-size:.9rem; padding:8px 4px; }
+    @media(max-width:650px) { main { padding:14px 12px 36px; } header,section { padding:18px; } .mapframe { height:560px; } .cards { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body><main>
+  <nav><strong>HYDERABAD · URBAN ANALYSIS</strong><a href="#change">Maps</a><a href="#interactive">Interactive</a><a href="#monthly">Monthly</a><a href="#methods">Methods</a></nav>
+  <header>
+    <p class="pill">Question 2 · Google Earth Engine</p>
+    <h1>Where aerosol index and child population overlap in Hyderabad</h1>
+    <p class="meta">Mohammad Rameez · Roll CE25M407 · Calendar year 2020</p>
+    <p>Sentinel-5P absorbing aerosol index paired with modeled population aged 0–14 in areas above Hyderabad's own annual AAI threshold.</p>
+    <p class="note">AAI is a satellite column index. The population overlay counts modeled children residing in mapped high-AAI areas; it does not estimate personal or ground-level exposure.</p>
+  </header>
+
+  <section id="results">
+    <h2>City summary</h2>
+    <div class="grid">
+      <div class="stat"><strong>-1.259</strong><span>Citywide mean annual AAI (unitless)</span></div>
+      <div class="stat"><strong>-1.225</strong><span>Annual AAI 75th percentile (unitless)</span></div>
+      <div class="stat"><strong>152.1 km²</strong><span>Area at or above Q75 · 25.0% of valid AAI area</span></div>
+      <div class="stat"><strong>39.9%</strong><span>Modeled children in high-AAI areas · 532,659 children</span></div>
+    </div>
+    <p class="note">Modeled citywide population aged 0–14: 1,335,100.</p>
+  </section>
+
+  <section id="change">
+    <h2>Annual AAI and child population</h2>
+    <div class="cards">
+    <article class="card"><h3>Annual mean absorbing aerosol index</h3>
+    <figure><img src="annual_mean_aai.png" alt="Annual mean Sentinel-5P absorbing aerosol index over Hyderabad with GHMC boundary"><figcaption>Sentinel-5P annual mean of 12 monthly means. White line: GHMC boundary.</figcaption></figure>
+    <div class="legend"><div class="ramp"></div><div class="ticks"><span>-1.372</span><span>AAI · unitless · city p2–p98</span><span>-1.167</span></div></div></article>
+    <article class="card"><h3>Children 0–14 in the highest AAI quartile</h3>
+    <figure><img src="children_high_quartile.png" alt="Estimated children aged 0–14 per WorldPop grid cell in Hyderabad's high-AAI areas"><figcaption>Warm overlay: estimated children per approximately 100 m WorldPop cell in annual high-AAI areas. Cool background: annual AAI; the AAI classification is approximately 1.1 km.</figcaption></figure>
+    <div class="legend"><div class="ramp-pop"></div><div class="ticks"><span>0</span><span>Children per WorldPop cell · Q98 cap</span><span>87.3</span></div><p class="note">Color scale capped at the 98th percentile; the reported total uses all included cells.</p></div></article>
+    </div>
+    <div class="textpanel"><h3>Spatial interpretation</h3><p>The annual mean AAI across valid GHMC pixels was -1.259 (unitless), and the city-specific 75th-percentile threshold was -1.225. The highest quartile covered 152.1 km², or 25.0% of valid AAI area. The R5 annual map was nearly uniform because its fixed display minimum clipped the observed values, so it could not reliably show where AAI was higher or lower. In the child-population overlay, warm cells appear concentrated in the central-to-southeastern urban area, with a smaller northwestern patch. The overlay indicates the modeled number of children per WorldPop cell within high-AAI areas, not a finer-resolution AAI measurement. About 532,659 of 1,335,100 modeled children (39.9%) fall in those areas. That share exceeds the 25.0% area share, suggesting the high-AAI quartile contains a relatively large portion of the modeled child population; this indicates spatial overlap, not personal exposure or a health effect.</p></div>
+  </section>
+
+  <section id="interactive">
+    <h2>Interactive Hyderabad map</h2>
+    <p class="note">Use the layer control to compare annual AAI, high-AAI areas, and modeled children per population cell.</p>
+    <iframe class="mapframe" src="interactive_map.html" title="Interactive Hyderabad AAI and child population map" loading="lazy"></iframe>
+    <p><a href="interactive_map.html" target="_blank" rel="noopener">Open the interactive map in a new tab ↗</a></p>
+  </section>
+
+  <section id="monthly">
+    <h2>Monthly departures from the annual mean</h2>
+    <div class="cards">
+    <article class="card"><figure><img src="monthly_aai_departure_2020.gif" alt="Animated monthly pixelwise Sentinel-5P AAI departures from the 2020 annual mean"><figcaption>Blue: below that pixel's annual mean. Warm: above its annual mean. One symmetric scale is used for all frames.</figcaption></figure>
+    <div class="legend"><div class="ramp-anom"></div><div class="ticks"><span>−0.100</span><span>AAI departure · unitless</span><span>+0.100</span></div></div></article>
+    <article class="card"><h3>Monthly citywide mean AAI</h3><div class="chart"><svg viewBox="0 0 900 280" role="img" aria-label="Monthly citywide mean AAI"><g fill="#9eacbb" font-size="12"><line x1="58" y1="18.0" x2="878" y2="18.0" stroke="#2b3949" /><text x="50" y="22.0" text-anchor="end">-0.703</text><line x1="58" y1="125.0" x2="878" y2="125.0" stroke="#2b3949" /><text x="50" y="129.0" text-anchor="end">-1.185</text><line x1="58" y1="232.0" x2="878" y2="232.0" stroke="#2b3949" /><text x="50" y="236.0" text-anchor="end">-1.666</text></g><polyline points="58.0,138.2 132.5,115.3 207.1,134.5 281.6,72.2 356.2,48.6 430.7,155.2 505.3,161.9 579.8,131.6 654.4,170.8 728.9,182.4 803.5,186.8 878.0,201.4" fill="none" stroke="#5dd9c1" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" /><circle cx="58.0" cy="138.2" r="4.5" fill="#f4a261"><title>Jan: -1.244 AAI</title></circle><text x="58.0" y="265" text-anchor="middle">Jan</text><circle cx="132.5" cy="115.3" r="4.5" fill="#f4a261"><title>Feb: -1.141 AAI</title></circle><text x="132.5" y="265" text-anchor="middle">Feb</text><circle cx="207.1" cy="134.5" r="4.5" fill="#f4a261"><title>Mar: -1.227 AAI</title></circle><text x="207.1" y="265" text-anchor="middle">Mar</text><circle cx="281.6" cy="72.2" r="4.5" fill="#f4a261"><title>Apr: -0.947 AAI</title></circle><text x="281.6" y="265" text-anchor="middle">Apr</text><circle cx="356.2" cy="48.6" r="4.5" fill="#f4a261"><title>May: -0.841 AAI</title></circle><text x="356.2" y="265" text-anchor="middle">May</text><circle cx="430.7" cy="155.2" r="4.5" fill="#f4a261"><title>Jun: -1.321 AAI</title></circle><text x="430.7" y="265" text-anchor="middle">Jun</text><circle cx="505.3" cy="161.9" r="4.5" fill="#f4a261"><title>Jul: -1.351 AAI</title></circle><text x="505.3" y="265" text-anchor="middle">Jul</text><circle cx="579.8" cy="131.6" r="4.5" fill="#f4a261"><title>Aug: -1.215 AAI</title></circle><text x="579.8" y="265" text-anchor="middle">Aug</text><circle cx="654.4" cy="170.8" r="4.5" fill="#f4a261"><title>Sep: -1.391 AAI</title></circle><text x="654.4" y="265" text-anchor="middle">Sep</text><circle cx="728.9" cy="182.4" r="4.5" fill="#f4a261"><title>Oct: -1.443 AAI</title></circle><text x="728.9" y="265" text-anchor="middle">Oct</text><circle cx="803.5" cy="186.8" r="4.5" fill="#f4a261"><title>Nov: -1.463 AAI</title></circle><text x="803.5" y="265" text-anchor="middle">Nov</text><circle cx="878.0" cy="201.4" r="4.5" fill="#f4a261"><title>Dec: -1.528 AAI</title></circle><text x="878.0" y="265" text-anchor="middle">Dec</text></svg></div><p class="note">Monthly Sentinel-5P scene counts range from 410 to 454.</p>
+    <details><summary>Monthly values</summary><table><thead><tr><th>Month</th><th>Mean AAI</th><th>Scenes</th></tr></thead><tbody><tr><th>Jan</th><td>-1.244</td><td>440</td></tr><tr><th>Feb</th><td>-1.141</td><td>410</td></tr><tr><th>Mar</th><td>-1.227</td><td>440</td></tr><tr><th>Apr</th><td>-0.947</td><td>425</td></tr><tr><th>May</th><td>-0.841</td><td>438</td></tr><tr><th>Jun</th><td>-1.321</td><td>426</td></tr><tr><th>Jul</th><td>-1.351</td><td>454</td></tr><tr><th>Aug</th><td>-1.215</td><td>438</td></tr><tr><th>Sep</th><td>-1.391</td><td>425</td></tr><tr><th>Oct</th><td>-1.443</td><td>440</td></tr><tr><th>Nov</th><td>-1.463</td><td>424</td></tr><tr><th>Dec</th><td>-1.528</td><td>438</td></tr></tbody></table></details></article>
+    </div>
+    <div class="textpanel"><h3>Month-to-month interpretation</h3><p>The monthly citywide mean ranged from -1.528 in Dec to -0.841 in May. Monthly composites used 410–454 Sentinel-5P scenes. The animation displays each month&#x27;s pixelwise departure from the annual mean on one symmetric ±0.100 scale, making relative month-to-month differences easier to see. The earlier flat rendering was caused by display clipping: the executed annual mean (-1.259) and Q75 (-1.225) were below the old −1 color minimum, so most annual pixels collapsed to the same endpoint color. These index departures describe satellite-observed variation and do not establish its cause or represent ground-level personal exposure.</p></div>
+  </section>
+
+  <section id="methods">
+    <h2>Method and limitations</h2>
+    <div class="textpanel"><p>Sentinel-5P AAI is a roughly 1.11 km satellite column index of UV-absorbing aerosol signal, not ground-level concentration or personal exposure. Monthly means smooth short-lived events and the city-specific Q75 is a relative threshold, not a health standard. WorldPop age counts are modeled 2020 estimates at roughly 93 m. The coarser AAI classification is transferred to those finer cells, so children are reported as residing in areas with relatively high satellite-observed AAI values. Results also depend on the 2018-vintage GHMC boundary and valid satellite coverage.</p>
+    <p class="note">The Q75 marks a relative city-specific satellite index range; it is not a health guideline. Population totals are modeled estimates, not observed individual locations.</p>
+    </div>
+
+  <footer>
+    <p>Boundary: DataMeet Municipal Spatial Data, GHMC area GeoJSON; source feature timestamp 2018-01-03. AAI: <a href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_OFFL_L3_AER_AI">Sentinel-5P OFFL L3 AER_AI</a>. Age/sex population: <a href="https://developers.google.com/earth-engine/datasets/catalog/WorldPop_GP_100m_pop_age_sex">WorldPop 100 m age/sex, 2020</a>.</p>
+    <p>Method and processing: Google Earth Engine with Python and geemap. This page reports children residing in areas with relatively high satellite-observed AAI; it does not estimate personal or ground-level exposure.</p>
+  </footer></section>
+</main></body></html>
